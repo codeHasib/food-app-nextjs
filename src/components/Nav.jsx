@@ -1,18 +1,23 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
+  const pathName = usePathname();
+
   const links = (
     <>
-      <li>
+      <li className={pathName === "/" ? "text-[#8e1c19]" : ""}>
         <Link href={"/"}> Home </Link>
       </li>
-      <li>
+      <li className={pathName === "/foods" ? "text-[#8e1c19]" : ""}>
         <Link href={"/foods"}> Foods </Link>
       </li>
-      <li>
+      <li className={pathName === "/blogs" ? "text-[#8e1c19]" : ""}>
         <Link href={"/blogs"}> Blogs </Link>
       </li>
-      <li>
+      <li className={pathName === "/reviews" ? "text-[#8e1c19]" : ""}>
         <Link href={"/reviews"}> Reviews </Link>
       </li>
     </>
