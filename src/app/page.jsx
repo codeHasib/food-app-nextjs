@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero></Hero>
-      <div className="bg-base-300">
+      <div>
         <div className="py-8 space-y-2 container mx-auto flex justify-center md:justify-between text-center md:text-start lg:text-start lg:justify-between items-center flex-wrap">
           <div>
             <h2 className="text-xl lg:text-2xl font-semibold">

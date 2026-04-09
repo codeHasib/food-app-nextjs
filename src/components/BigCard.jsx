@@ -10,9 +10,9 @@ const BigCard = async () => {
     currentFood;
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-sm relative h-140">
-        <figure className="w-7/12 flex justify-center items-center p-10">
-          <div className="relative">
+      <div className="card md:card-side lg:card-side bg-base-100 shadow-md transition duration-300 hover:shadow-[0_10px_30px_rgba(116,5,16,0.3)] relative h-140">
+        <figure className="w-full h-full flex justify-center items-center p-10">
+          <div className="relative w-full h-full">
             <Image
               fill
               className="object-contain"

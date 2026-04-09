@@ -7,7 +7,7 @@ const MoreCard = async () => {
   const data = await res.json();
   const foods = data.data;
   return (
-    <div className="flex flex-col justify-center items-center h-140 text-center space-y-4 py-10 px-6 rounded-4xl text-white bg-[#921b27]">
+    <div className="flex flex-col justify-center items-center h-140 text-center space-y-4 py-10 px-6 rounded-4xl text-white bg-[#921b27] shadow-md transition duration-300 hover:shadow-[0_10px_30px_rgba(116,5,16,0.3)]">
       <Image src={spoonImg} alt="spoon icon" width={20} height={20}></Image>
       <h2 className="font-bold text-2xl">Hungry for more?</h2>
       <p className="mb-5">

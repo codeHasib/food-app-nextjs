@@ -8,7 +8,7 @@ const Card = async ({ num }) => {
   const { dish_name, rating, price, origin_and_popularity, image_link } =
     currentFood;
   return (
-    <div className="h-140 space-y-4 p-5 rounded-4xl bg-white">
+    <div className="h-140 space-y-4 p-5 rounded-4xl bg-white shadow-md transition duration-300 hover:shadow-[0_10px_30px_rgba(116,5,16,0.3)]">
       <div className="relative w-full h-40">
         <Image
           fill

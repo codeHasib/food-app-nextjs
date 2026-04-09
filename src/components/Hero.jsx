@@ -1,5 +1,6 @@
 import Image from "next/image";
 import heroImg from "../../public/hero.jpg";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -16,10 +17,14 @@ const Hero = () => {
           palate.
         </p>
         <div className="mt-2">
-          <button className="btn bg-[#740510] text-white mr-2 transition-all duration-300 hover:bg-[#921b27]">
-            Explore the Menu
-          </button>
-          <button className="btn bg-white text-[#740510]">Our Story</button>
+          <Link href={"/foods"}>
+            <button className="btn bg-[#740510] text-white mr-2 transition-all duration-300 hover:bg-[#921b27]">
+              Explore the Menu
+            </button>
+          </Link>
+          <Link href={"/blogs"}>
+            <button className="btn bg-white text-[#740510]">Our Story</button>
+          </Link>
         </div>
       </div>
       <div className="rotate-3 flex justify-center items-center">
