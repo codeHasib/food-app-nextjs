@@ -3,7 +3,7 @@ import heroImg from "../../public/hero.jpg";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 p-15 min-h-[80vh] gap-15">
+    <div className="grid grid-cols-1 lg:grid-cols-2 py-15 min-h-[80vh] gap-15 container mx-auto shadow-sm">
       <div className="space-y-5 flex items-center justify-center lg:items-start flex-col">
         <div className="badge bg-red-300 font-bold">EST 2022</div>
         <h1 className="text-2xl lg:text-4xl font-semibold">
