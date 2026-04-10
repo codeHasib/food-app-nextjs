@@ -45,12 +45,12 @@ const CartItem = ({ food }) => {
       <div className="flex flex-col justify-center items-center lg:items-start space-y-3">
         <h2 className="text-2xl font-lighter ">{dish_name}</h2>
         <h3 className="text-xl font-bold">${price}</h3>
-        <div className="flex justify-center items-center gap-5">
+        <div className="flex justify-center items-center gap-5 font-extrabold text-xl border border-gray-400 p-2 rounded-xl bg-white">
           <button onClick={() => increaseQuantity(id)}>+</button>
           <p> {food.quantity} </p>
           <button onClick={() => decreaseQuantity(id)}>-</button>
         </div>
-        <button onClick={remove} className="btn text-red-500">
+        <button onClick={remove} className="btn bg-white rounded-full p-0 h-15 w-15 text-[#883039] transition-all ease-in-out duration-300 hover:text-red-500 hover:bg-white hover:scale-105">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
