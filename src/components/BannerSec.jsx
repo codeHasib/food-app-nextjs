@@ -9,10 +9,9 @@ const BannerSec = () => {
     e.preventDefault();
     toast.success("You have been subscribed successfully!!!");
   }
-
   return (
     <>
-      <div className="flex items-center justify-center py-10 px-4 gap-5 lg:flex-nowrap flex-wrap-reverse my-10">
+      <div className="flex items-center justify-center py-10 px-4 gap-5 lg:flex-row md:flex-row flex-col-reverse my-10">
         <div className="h-75 w-75 mr-0 md:mr-15 lg:mr-30 relative">
           <Image
             className="w-full h-full rounded-full"
@@ -27,7 +26,7 @@ const BannerSec = () => {
           </div>
         </div>
         <div className="w-5/12 space-y-4">
-          <h2 className="text-2xl font-bold ">Join The Chicken World</h2>
+          <h2 className="text-center lg:text-start md:text-start text-2xl font-bold ">Join The Chicken World</h2>
           <p>
             Receive exclusive invitations to our private tasting events, chief's
             table sessions, and monthly flavor insights curated by our
@@ -51,7 +50,7 @@ const BannerSec = () => {
               />
             </form>
           </div>
-          <p>RESERVED FOR THE DISCERNING. NO SPAN. EVER.</p>
+          <p className="font-thin">RESERVED FOR THE DISCERNING. NO SPAN. EVER.</p>
         </div>
       </div>
     </>
