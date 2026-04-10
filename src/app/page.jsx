@@ -1,3 +1,4 @@
+import BannerSec from "@/components/BannerSec";
 import BigCard from "@/components/BigCard";
 import Card from "@/components/Card";
 import Hero from "@/components/Hero";
@@ -62,6 +63,7 @@ export default function Home() {
           <MoreCard></MoreCard>
         </div>
       </div>
+      <BannerSec></BannerSec>
     </>
   );
 }
