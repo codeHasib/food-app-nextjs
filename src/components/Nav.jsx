@@ -11,7 +11,7 @@ const Nav = () => {
       <li className={pathName === "/" ? "text-[#8e1c19]" : ""}>
         <Link href={"/"}> Home </Link>
       </li>
-      <li className={pathName === "/foods" ? "text-[#8e1c19]" : ""}>
+      <li className={pathName === "/foods/all" ? "text-[#8e1c19]" : ""}>
         <Link href={"/foods/all"}> Foods </Link>
       </li>
       <li className={pathName === "/blogs" ? "text-[#8e1c19]" : ""}>

@@ -1,4 +1,5 @@
 import CartIcon from "@/components/CartIcon";
+import Footer from "@/components/Footer";
 import Tab from "@/components/Tab";
 
 const FoodLayout = ({ children }) => {
@@ -18,6 +19,7 @@ const FoodLayout = ({ children }) => {
       <Tab></Tab>
       {children}
       <CartIcon></CartIcon>
+      <Footer></Footer>
     </>
   );
 };
