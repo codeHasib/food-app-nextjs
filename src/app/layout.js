@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       >
         <body>
           <Nav></Nav>
-          <div className="px-5">{children}</div>
+          <div>{children}</div>
         </body>
       </html>
       <ToastContainer></ToastContainer>

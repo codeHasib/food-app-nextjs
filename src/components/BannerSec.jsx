@@ -26,31 +26,37 @@ const BannerSec = () => {
           </div>
         </div>
         <div className="w-5/12 space-y-4">
-          <h2 className="text-center lg:text-start md:text-start text-2xl font-bold ">Join The Chicken World</h2>
+          <h2 className="text-center lg:text-start md:text-start text-2xl font-bold ">
+            Join The Chicken World
+          </h2>
           <p>
             Receive exclusive invitations to our private tasting events, chief's
             table sessions, and monthly flavor insights curated by our
             sommeliers.
           </p>
-          <div className="bg-white flex justify-start items-start h-15 rounded-2xl">
+          <div className="max-w-md mx-auto p-4">
             <form
               onSubmit={subscribe}
-              className="flex justify-start items-start h-full w-full"
+              className="flex flex-col md:flex-row items-stretch overflow-hidden rounded-md"
             >
               <input
                 type="email"
+                placeholder="Email address"
+                className="bg-[#e5e5e5] text-gray-600 px-4 py-3 outline-none w-full placeholder-gray-500"
                 required
-                className="flex-1 h-full px-4"
-                placeholder="Enter your email address"
               />
-              <input
+
+              <button
                 type="submit"
-                value="Subscribe"
-                className="h-full btn bg-[#883039] text-white"
-              />
+                className="bg-[#800000] hover:bg-[#600000] text-white px-8 py-3 font-medium transition-colors duration-200"
+              >
+                Subscribe
+              </button>
             </form>
           </div>
-          <p className="font-thin">RESERVED FOR THE DISCERNING. NO SPAN. EVER.</p>
+          <p className="font-thin">
+            RESERVED FOR THE DISCERNING. NO SPAN. EVER.
+          </p>
         </div>
       </div>
     </>
