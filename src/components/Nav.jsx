@@ -12,7 +12,7 @@ const Nav = () => {
         <Link href={"/"}> Home </Link>
       </li>
       <li className={pathName === "/foods" ? "text-[#8e1c19]" : ""}>
-        <Link href={"/foods"}> Foods </Link>
+        <Link href={"/foods/all"}> Foods </Link>
       </li>
       <li className={pathName === "/blogs" ? "text-[#8e1c19]" : ""}>
         <Link href={"/blogs"}> Blogs </Link>
@@ -24,7 +24,7 @@ const Nav = () => {
   );
 
   return (
-    <div className="bg-white shadow-sm mb-5">
+    <div className="bg-white shadow-sm mb-5 sticky top-0 lef-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

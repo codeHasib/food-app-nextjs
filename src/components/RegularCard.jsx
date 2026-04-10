@@ -1,10 +1,6 @@
 import Image from "next/image";
 
-const Card = async ({ num }) => {
-  const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/foods");
-  const data = await res.json();
-  const foods = data.data;
-  const currentFood = foods[num];
+const RegularCard = ({ currentFood }) => {
   const { dish_name, rating, price, origin_and_popularity, image_link } =
     currentFood;
   return (
@@ -22,7 +18,7 @@ const Card = async ({ num }) => {
         <p className="mb-5">{origin_and_popularity}</p>
         <div className="flex justify-between items-center">
           <h3 className="text-[#921b27] font-bold text-xl">${price}</h3>
-          <button className="border rounded-full p-3">
+          <button className="border rounded-full p-3 cursor-pointer transition-all duration-300 hover:rotate-180">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -44,4 +40,4 @@ const Card = async ({ num }) => {
   );
 };
 
-export default Card;
+export default RegularCard;

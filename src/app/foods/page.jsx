@@ -1,9 +1,10 @@
 import Hero from "@/components/Hero";
+import Tab from "@/components/Tab";
 
 const FoodsPage = () => {
   return (
-    <div>
-    </div>
+    <>
+    </>
   );
 };
 
