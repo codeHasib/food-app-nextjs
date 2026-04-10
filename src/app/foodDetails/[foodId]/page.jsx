@@ -13,18 +13,19 @@ const FoodDetailsPage = () => {
         `https://phi-lab-server.vercel.app/api/v1/lab/foods/${foodId}`,
       );
       const data = await res.json();
-      console.log(data.data);
       setFood(data.data);
     };
     fetchData();
-    console.log(food)
   }, [foodId]);
 
   return (
     <>
-      <FoodDetails currentFood={food}></FoodDetails>
+      {food && (
+        <div className="container mx-auto px-4 rounded-4xl">
+          <FoodDetails currentFood={food}></FoodDetails>
+        </div>
+      )}
     </>
   );
 };
-
 export default FoodDetailsPage;
