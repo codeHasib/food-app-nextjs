@@ -4,15 +4,71 @@ import { useContext } from "react";
 import { Context } from "../Context/useContext";
 import CartItem from "@/components/CartItem";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const CartPage = () => {
   const { cartItems, setCartItems } = useContext(Context);
-  const totalPrice = cartItems.reduce((acc, runn) => acc + runn.price, 0);
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+
+  function checkOut(e) {
+    e.preventDefault();
+    e.target.username.value = "";
+    e.target.contact.value = "";
+    e.target.address.value = "";
+    toast.success("Your order has been placed!!");
+    setCartItems([]);
+  }
+
+  const orderForm = (
+    <>
+      <div>
+        <h2 className="my-5 text-center text-xl md:text-2xl lg:text-3xl font-light text-white p-4 bg-[#883039] rounded-full">
+          Please provide these info for checkout.
+        </h2>
+        <form
+          onSubmit={checkOut}
+          className="flex flex-col gap-4 items-start justify-start text-xl lg:text-2xl"
+        >
+          <input
+            className="inline-block py-5 px-10 bg-gray-300 rounded-4xl w-full"
+            type="text"
+            name="username"
+            placeholder="Enter your name"
+            required
+          />
+          <input
+            className="inline-block py-5 px-10 bg-gray-300 rounded-3xl w-full"
+            type="tel"
+            name="contact"
+            placeholder="Enter your contact number"
+            required
+          />
+          <textarea
+            className="inline-block py-5 px-10 bg-gray-300 rounded-3xl w-full"
+            type="text"
+            name="address"
+            placeholder="Enter your address"
+            required
+            cols={25}
+            rows={5}
+          />
+          <input
+            className="btn bg-red-950 text-white w-full"
+            type="submit"
+            value={"Checkout"}
+          />
+        </form>
+      </div>
+    </>
+  );
   return (
     <>
       <div className="container mx-auto space-y-4 px-3">
         {cartItems.length > 0 ? (
-          cartItems.map((item, ind) => (
+          cartItems?.map((item, ind) => (
             <CartItem key={ind} food={item}></CartItem>
           ))
         ) : (
@@ -42,9 +98,12 @@ const CartPage = () => {
           </div>
         )}
         {cartItems.length > 0 ? (
-          <div className="flex justify-between items-center py-10 px-4">
-            <h2 className="text-2xl font-semibold">Total Price:-</h2>
-            <h3 className="text-xl font-extrabold">${totalPrice}</h3>
+          <div>
+            <div className="flex justify-between items-center py-10 px-4">
+              <h2 className="text-2xl font-semibold">Total Price:-</h2>
+              <h3 className="text-xl font-extrabold">${totalPrice}</h3>
+            </div>
+            {orderForm}
           </div>
         ) : (
           ""

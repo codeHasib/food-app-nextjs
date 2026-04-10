@@ -1,6 +1,5 @@
 "use client";
 
-import filter from "daisyui/components/filter";
 import { createContext, useEffect, useState } from "react";
 
 export const Context = createContext();

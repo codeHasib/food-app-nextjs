@@ -8,27 +8,29 @@ const CartItem = ({ food }) => {
   const { cartItems, setCartItems } = useContext(Context);
   const { id, dish_name, rating, price, origin_and_popularity, image_link } =
     food;
-  const [count, setCount] = useState(0);
 
-  function increment() {
-    let newCount = count;
-    newCount++;
-    setCount(newCount);
-  }
+  const increaseQuantity = (id) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
+    );
+  };
 
   function remove() {
     const filtered = cartItems.filter((item) => id !== item.id);
     setCartItems(filtered);
-    console.log(id);
   }
 
-  function decrement() {
-    let newCount = count;
-    if (newCount > 0) {
-      newCount--;
-    }
-    setCount(newCount);
-  }
+  const decreaseQuantity = (id) => {
+    setCartItems((prev) =>
+      prev
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+        )
+        .filter((item) => item.quantity > 0),
+    );
+  };
 
   return (
     <div className="flex items-center justify-center lg:justify-start lg:items-start gap-10 flex-wrap bg-gray-300 p-10 rounded-xl">
@@ -44,9 +46,9 @@ const CartItem = ({ food }) => {
         <h2 className="text-2xl font-lighter ">{dish_name}</h2>
         <h3 className="text-xl font-bold">${price}</h3>
         <div className="flex justify-center items-center gap-5">
-          <button onClick={increment}>+</button>
-          <p> {count} </p>
-          <button onClick={decrement}>-</button>
+          <button onClick={() => increaseQuantity(id)}>+</button>
+          <p> {food.quantity} </p>
+          <button onClick={() => decreaseQuantity(id)}>-</button>
         </div>
         <button onClick={remove} className="btn text-red-500">
           <svg

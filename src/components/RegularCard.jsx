@@ -3,21 +3,32 @@
 import { Context } from "@/app/Context/useContext";
 import Image from "next/image";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 const RegularCard = ({ currentFood }) => {
   const { dish_name, rating, price, origin_and_popularity, image_link } =
     currentFood;
 
-  const updatedFood = {
-    ...currentFood,
-    quantity: currentFood.quantity || 1,
-  };
   const { cartItems, setCartItems } = useContext(Context);
 
-  function add() {
-    setCartItems([...cartItems, updatedFood]);
-    console.log(cartItems);
-  }
+  const addToCart = (product) => {
+    toast.success(
+      `${product.dish_name} added successfully`,
+    );
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.id === product.id);
+      if (existing) {
+
+        return prev.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item,
+        );
+      }
+
+      return [...prev, { ...product, quantity: 1 }];
+    });
+  };
 
   return (
     <div className="min-h-140 space-y-4 p-5 rounded-4xl bg-white shadow-md transition duration-300 hover:shadow-[0_10px_30px_rgba(116,5,16,0.3)]">
@@ -35,7 +46,7 @@ const RegularCard = ({ currentFood }) => {
         <div className="flex justify-between items-center">
           <h3 className="text-[#921b27] font-bold text-xl">${price}</h3>
           <button
-            onClick={add}
+            onClick={() => addToCart(currentFood)}
             className="border rounded-full p-3 cursor-pointer transition-all duration-300 hover:rotate-180"
           >
             <svg
