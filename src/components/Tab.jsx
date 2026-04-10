@@ -57,7 +57,7 @@ const Tab = () => {
   );
   return (
     <>
-      <ul className="flex justify-center items-center gap-5">{links}</ul>
+      <ul className="flex justify-center items-center gap-5 flex-wrap">{links}</ul>
     </>
   );
 };

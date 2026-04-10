@@ -19,7 +19,7 @@ const CartItem = ({ food }) => {
   function remove() {
     const filtered = cartItems.filter((item) => id !== item.id);
     setCartItems(filtered);
-    console.log(id)
+    console.log(id);
   }
 
   function decrement() {
@@ -31,7 +31,7 @@ const CartItem = ({ food }) => {
   }
 
   return (
-    <div className="flex justify-start items-start gap-10 bg-gray-300 p-10 rounded-xl">
+    <div className="flex items-center justify-center lg:justify-start lg:items-start gap-10 flex-wrap bg-gray-300 p-10 rounded-xl">
       <div>
         <Image
           src={image_link}
@@ -40,7 +40,7 @@ const CartItem = ({ food }) => {
           width={150}
         ></Image>
       </div>
-      <div className="flex flex-col justify-center items-start space-y-3">
+      <div className="flex flex-col justify-center items-center lg:items-start space-y-3">
         <h2 className="text-2xl font-lighter ">{dish_name}</h2>
         <h3 className="text-xl font-bold">${price}</h3>
         <div className="flex justify-center items-center gap-5">
