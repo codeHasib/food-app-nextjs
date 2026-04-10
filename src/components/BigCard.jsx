@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const BigCard = async () => {
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/foods");
@@ -6,7 +7,7 @@ const BigCard = async () => {
   const foods = data.data;
   console.log(foods[0]);
   const currentFood = foods[0];
-  const { dish_name, rating, price, origin_and_popularity, image_link } =
+  const { id, dish_name, rating, price, origin_and_popularity, image_link } =
     currentFood;
   return (
     <div>
@@ -35,22 +36,11 @@ const BigCard = async () => {
             </div>
             <div className="flex justify-between items-center">
               <h3 className="text-[#921b27] font-bold text-xl">${price}</h3>
-              <button className="border rounded-full p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-              </button>
+              <Link href={`/foodDetails/${id}`}>
+                <button className="border btn bg-[#ae1b27] text-white font-bold p-3">
+                  View Details
+                </button>
+              </Link>
             </div>
           </div>
         </div>

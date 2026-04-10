@@ -26,7 +26,7 @@ export default function Home() {
             <div>
               <Link
                 className="flex justify-center items-center gap-2 font-semibold text-[#740510] text-[18px]"
-                href={"/foods"}
+                href={"/foods/all"}
               >
                 {" "}
                 Full Menu{" "}

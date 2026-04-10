@@ -1,8 +1,24 @@
+"use client";
+
+import { Context } from "@/app/Context/useContext";
 import Image from "next/image";
+import { useContext, useState } from "react";
 
 const RegularCard = ({ currentFood }) => {
   const { dish_name, rating, price, origin_and_popularity, image_link } =
     currentFood;
+
+  const updatedFood = {
+    ...currentFood,
+    quantity: currentFood.quantity || 1,
+  };
+  const { cartItems, setCartItems } = useContext(Context);
+
+  function add() {
+    setCartItems([...cartItems, updatedFood]);
+    console.log(cartItems);
+  }
+
   return (
     <div className="min-h-140 space-y-4 p-5 rounded-4xl bg-white shadow-md transition duration-300 hover:shadow-[0_10px_30px_rgba(116,5,16,0.3)]">
       <div className="relative w-full h-40">
@@ -18,7 +34,10 @@ const RegularCard = ({ currentFood }) => {
         <p className="mb-5">{origin_and_popularity}</p>
         <div className="flex justify-between items-center">
           <h3 className="text-[#921b27] font-bold text-xl">${price}</h3>
-          <button className="border rounded-full p-3 cursor-pointer transition-all duration-300 hover:rotate-180">
+          <button
+            onClick={add}
+            className="border rounded-full p-3 cursor-pointer transition-all duration-300 hover:rotate-180"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

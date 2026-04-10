@@ -17,7 +17,7 @@ const Hero = () => {
           palate.
         </p>
         <div className="mt-2">
-          <Link href={"/foods"}>
+          <Link href={"/foods/all"}>
             <button className="btn bg-[#740510] text-white mr-2 transition-all duration-300 hover:bg-[#921b27]">
               Explore the Menu
             </button>

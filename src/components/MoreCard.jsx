@@ -16,7 +16,7 @@ const MoreCard = async () => {
 
       <Link
         className="btn bg-[#ffffff2c] text-white font-semibold p-4 rounded-full"
-        href={"/foods"}
+        href={"/foods/all"}
       >
         {" "}
         View More {foods.length} Items
